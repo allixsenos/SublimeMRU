@@ -16,7 +16,7 @@ def get_history():
 
 def save_history(history):
     """save the history using sublime's built-in functionality for accessing settings"""
-    history = clean_history(history)
+    clean_history(history)
     sublime.save_settings(HISTORY_SETTINGS_FILE)
 
 
@@ -33,7 +33,8 @@ def clean_history(history):
             while filename in file_history:
                 file_history.remove(filename)
 
-        history.set(historytype, file_history)
+        # save back, trimming excess entries
+        history.set(historytype, file_history[0:HISTORY_MAX_ENTRIES])
 
     return history
 
@@ -64,9 +65,9 @@ class OpenRecentlyClosedFileEvent(sublime_plugin.EventListener):
             if os.path.exists(filename):
                 add_to_list.insert(0, filename)
 
-            # write the history back (making sure to limit the length of the histories)
-            history.set(add_to_setting, add_to_list[0:HISTORY_MAX_ENTRIES])
-            history.set(remove_from_setting, remove_from_list[0:HISTORY_MAX_ENTRIES])
+            # write the history back
+            history.set(add_to_setting, add_to_list)
+            history.set(remove_from_setting, remove_from_list)
 
             save_history(history)
 
