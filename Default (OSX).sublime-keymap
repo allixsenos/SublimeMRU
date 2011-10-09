@@ -1,0 +1,4 @@
+[
+    { "keys": ["super+shift+t"], "command": "open_recently_closed_file" },
+    { "keys": ["super+ctrl+shift+t"], "command": "open_recently_closed_file", "args": { "show_quick_panel": true } }
+]

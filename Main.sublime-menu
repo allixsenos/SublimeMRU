@@ -1,0 +1,10 @@
+[
+    {
+        "id": "file",
+        "children":
+        [
+            { "caption": "Open recently closed file", "command": "open_recently_closed_file" },
+            { "caption": "Open recently closed files (panel)", "command": "open_recently_closed_file", "args": {"show_quick_panel":true} }
+        ]
+    }
+]
