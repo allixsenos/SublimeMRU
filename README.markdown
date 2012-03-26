@@ -2,6 +2,8 @@
 
 A "Most Recently Used" implementation, to quickly reopen recently closed files.
 
+THIS PLUGIN IS DEPRECATED: the functionality was added to Sublime core which makes this plugin redundant. There will be no updates for it coming from me, I'm leaving the repo up for educational purposes.
+
 ## Using
 
 This plugin exposes the commands "Open recently closed file" and "Open recently closed files (panel)" in the File menu.
